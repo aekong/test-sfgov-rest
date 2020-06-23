@@ -6,6 +6,18 @@
   </head>
   <body>
     open console to see debug info
+    <pre>
+      <code>
+  var xhr = new XMLHttpRequest();
+  xhr.onload = function() {  
+    var data = JSON.parse(this.responseText);
+    console.log(data);
+    console.log(JSON.parse(data[0].field_formio_render_options));
+  };
+  xhr.open("GET", "https://pr-577-sfgov.pantheonsite.io/rest/form/1077", true);
+  xhr.send();
+      </code>
+    </pre>
     <script>
       var xhr = new XMLHttpRequest();
       xhr.onload = function() {  
