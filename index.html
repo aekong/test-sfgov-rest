@@ -8,22 +8,25 @@
     open console to see debug info
     <pre>
       <code>
-  var xhr = new XMLHttpRequest();
-  xhr.onload = function() {  
-    var data = JSON.parse(this.responseText);
-    console.log(data);
-  };
-  xhr.open("GET", "https://pr-577-sfgov.pantheonsite.io/rest/form/1077", true);
-  xhr.send();
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {  
+          var data = JSON.parse(this.responseText);
+          console.log(data);
+          document.getElementById('results').innerHTML = JSON.stringify(data, undefined, 2);
+        };
+        xhr.open("GET", "https://pr-577-sfgov.pantheonsite.io/rest/form/all", true);
+        xhr.send();
       </code>
     </pre>
+    <pre id="results"></pre>
     <script>
       var xhr = new XMLHttpRequest();
       xhr.onload = function() {  
         var data = JSON.parse(this.responseText);
         console.log(data);
+        document.getElementById('results').innerHTML = JSON.stringify(data, undefined, 2);
       };
-      xhr.open("GET", "https://pr-577-sfgov.pantheonsite.io/rest/form/1077", true);
+      xhr.open("GET", "https://pr-577-sfgov.pantheonsite.io/rest/form/all", true);
       xhr.send();
     </script>
   </body>
